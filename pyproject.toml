@@ -1,0 +1,15 @@
+[project]
+name = "webrl"
+version = "0.1.0"
+description = "RL environment for screenshot-to-website recreation"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "claude-agent-sdk>=0.1.48",
+    "playwright",
+    "scikit-image",
+    "lpips",
+    "beautifulsoup4",
+    "Pillow",
+    "httpx",
+]
