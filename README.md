@@ -82,6 +82,36 @@ uv run python -m webrl episode data/
 
 Picks a random sample from the dataset, sets up the environment, and prints the prompt and asset list. Useful for inspecting what the LLM would see without making API calls.
 
+## Example
+
+Running an episode on the `preferencemodel` sample:
+
+```sh
+uv run python -m webrl run data/ --sample preferencemodel --save-dir results/
+```
+
+| Target | Rendered |
+|--------|----------|
+| ![Target](docs/examples/target.png) | ![Rendered](docs/examples/rendered.png) |
+
+Output:
+
+```
+Sample:      preferencemodel
+Score:       0.7370
+SSIM:        0.8982
+LPIPS:       0.3320
+Anti-cheat:  PASSED
+Steps:       3
+Turns:       36
+Time:        127.9s
+```
+
+- **Score** — final reward: `0.3 × SSIM + 0.7 × (1 - LPIPS)`
+- **SSIM** — structural similarity (higher = better)
+- **LPIPS** — perceptual distance (lower = better)
+- **Anti-cheat** — structural validation to prevent reward hacking
+
 ## Data Format
 
 Each sample is a directory containing a target screenshot and image assets:
